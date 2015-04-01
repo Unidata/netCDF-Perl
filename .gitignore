@@ -1,0 +1,9 @@
+.exrc
+CVS
+Makefile
+autom4te.cache
+conf.assigns
+*.log
+config.status
+configure
+*.tar.gz

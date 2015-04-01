@@ -1,0 +1,87 @@
+# $Id: Makefile.in,v 1.11 2003/01/06 17:12:59 steve Exp $
+
+.POSIX:
+
+PACKAGE		= netcdf-perl
+perl		= @PERL@
+perl_srcdir	= @PERL_SRCDIR@
+POLLUTE		= @POLLUTE@
+SUBDIRS		= port
+SUBDIR_TARGETS	= \
+		  perl/dynamic perl/perl \
+		  perl/test \
+		  perl/install perl/inst_perl \
+		  perl/clean perl/realclean
+
+PERL_MANDIR	= @PERL_MANDIR@
+MANUALS		= netCDFPerl.1
+MANIFEST	= \
+		  COPYRIGHT \
+		  CUSTOMIZE \
+		  HISTORY \
+		  INSTALL \
+		  Makefile.in \
+		  README \
+		  VERSION \
+		  aclocal.m4 \
+		  configure \
+		  configure.in \
+		  perl/MANIFEST \
+		  perl/Makefile.PL.in \
+		  perl/NetCDF.pm \
+		  perl/NetCDF.xs \
+		  perl/test.pl \
+		  netCDFPerl.1
+GARBAGE		= *.nc
+
+all:
+	@$(MAKE) $(MFLAGS) decision \
+	    DYNAMIC_GOAL=perl/dynamic STATIC_GOAL=perl/perl
+	test ! -f perl/so_locations || chmod a+w perl/so_locations
+
+test:
+	@case `uname -s` in \
+	    ULTRIX) \
+		$(MAKE) $(MFLAGS) perl/perl; \
+		perl/perl -I perl perl/test.pl; \
+		;; \
+	    *) \
+		$(MAKE) $(MFLAGS) perl/test; \
+		;; \
+	esac
+
+install:	FORCE
+	@$(MAKE) $(MFLAGS) decision \
+	    DYNAMIC_GOAL=perl/install STATIC_GOAL=perl/inst_perl
+	$(MAKE) $(MFLAGS) installed_manuals MANDIR=$(PERL_MANDIR)
+
+clean:		perl/clean
+	rm -f perl/perl
+
+realclean:	perl/clean
+	rm -f perl/perl
+
+perl/dynamic \
+perl/perl \
+perl/test \
+perl/install \
+perl/inst_perl \
+perl/clean \
+perl/realclean:	perl/Makefile
+
+perl/Makefile:	perl/Makefile.PL
+	cd perl && $(perl) Makefile.PL POLLUTE=$(POLLUTE)
+
+decision:	FORCE
+	@case `uname -s` in \
+	    ULTRIX) \
+		$(MAKE) $(MFLAGS) $(STATIC_GOAL); \
+		;; \
+	    *) \
+		$(MAKE) $(MFLAGS) $(DYNAMIC_GOAL); \
+		;; \
+	esac
+
+perl/perl:	FORCE
+
+include port/master.mk

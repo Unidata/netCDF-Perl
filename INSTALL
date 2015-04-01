@@ -1,0 +1,214 @@
+$Id: INSTALL,v 1.12 2004/05/17 15:12:27 steve Exp $
+
+INTRODUCTION
+------------
+Greetings,
+
+This file explains how to incorporate netCDFPerl, the perl extension for
+netCDF dataset access, into perl 5.00? on a UNIX system.  (We're afraid
+you're on your own for non-UNIX systems.)
+
+
+PLATFORMS
+---------
+We've successfully incorporated netCDFPerl into perl 5.003 on the
+following systems:
+
+    Machine             Operating System        C Compiler
+
+    DEC Alpha           Digital UNIX V4.0       /bin/cc
+    DEC RISC            ULTRIX 4.5              /bin/cc
+    HP 9000/715         HP_UX A.09.05           /bin/cc
+    IBM rs6000          AIX 4.2                 /bin/cc
+    Intel 586           Red Hat Linux 2.0.27    /usr/bin/cc
+    SGI mips            IRIX 6.2                /bin/cc
+    Sun sparc           SunOS 4.1.4             SC3.0.1/bin/acc
+    Sun sparc           SunOS 5.5               SC4.2/bin/cc
+
+
+PREREQUISITES
+-------------
+In order to incorporate netCDFPerl, you must already have version of 
+perl 5.4 (or later) installed on your system.  Perl can be obtained from 
+URL
+
+    http://www.metronet.com/perlinfo/perl5.html.
+
+You should also have the netCDF package installed.  The version should
+be 2.3.2, patch level 4, or later.  The netCDF package can be obtained
+from URL
+
+    http://my.unidata.ucar.edu/
+
+In order to be usable by a dynamically-linked netCDFPerl package, the
+object modules in the netCDF library should have been compiled in a
+position-independent manner, i.e. they should have been compiled as if
+they were going to be put into a shared library (which they will be in a
+dynamically-linked netCDFPerl module).  The following table gives some
+of the relevant C compiler options that should have been used:
+
+                    Operating System    Option
+
+                    HP-UX               +z
+                    SunOS 4.x           -pic
+                    SunOS 5.x           -Kpic
+
+On many other systems, generating position-independent code is
+the default.  Check the manual page for your compiler for further
+information.
+
+If your system has perl4 or an early version of perl5 installed as well as
+version 5.003, they must be moved before installing netCDFPerl because the 
+netCDFPerl installation will use the old perl binaries.
+
+
+INSTALLATION INSTRUCTIONS
+-------------------------
+When you have the prerequisite perl 5.003 (or later) and netCDF packages
+installed, then do the following to incorporate netCDFPerl:
+
+    1.  Go to the directory containing this file (the top-level source
+        directory of the NetCDFPerl package).
+
+    2.  Set configuration variables, either in the environment or in the 
+        file CUSTOMIZE.  In particular, the following variables might need
+        values:
+
+            Variable    Meaning
+            --------    -------
+            CPP_NETCDF  C compiler reference for the location of the
+                        netCDF header file (e.g.
+                        "-I/usr/local/include").
+
+            LD_NETCDF   Linker reference for the location of the
+                        netCDF library (e.g. "-L/usr/local/lib -lnetcdf").
+
+            PERL        Pathname of the perl(1) utility.  If given, it
+                        *must* refer to a perl 5 utility (and not a perl
+                        4 one).
+
+            PERL_MANDIR Pathname of the root of the directory hierarchy
+                        that contains the perl manual pages (e.g.
+                        "/usr/local/man").  The netCDFPerl(1) manual
+                        page will be install under this directory.
+
+    3.  Execute the "configure" script.  Redirect standard output and 
+        standard error to the file "configure.log".  If an error message
+        occurs in the output, then stop and send items A-E below to
+        SUPPORT (see below).
+
+        The configure script will look for your installed netCDF package
+        and for your perl package.  If it can't find them, then it will
+        tell you how to help it find them (via the variables mentioned
+        above).
+
+    4.  Execute the command "make perl/Makefile" to make the makefile in
+        the perl/ subdirectory.  Redirect standard output and standard
+        error to the file "makefile.log".  If an error occurs, then stop
+        and send items A-F to SUPPORT (see below).
+
+    5.  Modify the file perl/Makefile.PL if necessary:
+
+        Because the netCDF header-file, "netcdf.h", is written in
+        Standard C, it is necessary to use a Standard C compiler to
+        build the NetCDFPerl extension module.  This can cause problems
+        on systems whose perl(1) utility was not built using a Standard
+        C compiler because the building of a perl(1) extension module is
+        controlled by perl(1) (i.e. it is *not* under our control) and
+        perl(1) insists on using the same compiler and options that were
+        used to build it -- and if the compiler is non-standard, then
+        the build of NetCDFPerl might fail.
+
+        It is possible, however, to modify how perl(1) builds NetCDFPerl
+        by modifying the file perl/Makefile.PL, which is created when
+        the configure script is executed.  For example, on a SunOS
+        4.1.4 system, we needed to use a Standard C compiler to compile
+        NetCDFPerl, so we added the following entry to perl/Makefile.PL:
+
+            'CC' => "acc",
+
+        We also needed to reference the ANSI-C runtime-library because
+        the netCDF library referred to it; so we changed the following
+        entry
+
+            'LIBS' => "-L/upc/netcdf/lib -lnetcdf",
+
+        to
+
+            'LIBS' => "-L/upc/netcdf/lib -lnetcdf -L/usr/lang/SC3.0.1/lib -lansi",
+
+        You might have to do similar sorts of things -- depending on
+        your system.  Look in the makefile "perl/Makefile" to see what
+        variables you might add to or modify in "perl/Makefile.PL".
+
+        IRIX64-6 Users: You must ensure that the same Application
+        Binary Interface is used for the perl, netCDF, and netCDFPerl
+        packages.
+
+    6.  Execute "make".  Redirect standard output and standard error to
+        the file "make.log".  If an error occurs, then stop and send items
+        A-G to support (see below).
+
+        This will build netCDFPerl in the perl/ subdirectory.  On
+        systems that support shared libraries, a netCDFPerl shared
+        library will be built.  On systems that lack shared library
+        support, a new, statically-linked perl utility will be built
+        that incorporates netCDFPerl as well as all previously
+        incorporated extensions (e.g. TkPerl).
+
+        NOTE: On a DEC RISC/ULTRIX 4.5 system, the perl-generated
+        makefile "perl/Makefile" incorrectly believes that
+        running the ranlib(1) utility on the created library
+        perl/blib/auto/NetCDF/NetCDF.a is unnecessary.  Thus, the "make"
+        will fail.  The workaround is to manually run ranlib(1) on the
+        library man and then re-execute the "make".
+
+    7.  Execute "make test".  Redirect standard output and standard
+        error to the file "test.log".  If an error occurs, then stop and
+        send items A-H to SUPPORT (see below).
+
+        This will test netCDFPerl.  The perl script that executes the
+        test is in perl/test.pl.  You might wish to peruse it as an
+        example.
+
+    8.  Execute "make install".  Redirect standard output and standard
+        error to the file "install.log".  If an error occurs, then stop
+        and send items A-I to SUPPORT (see below).
+    
+        This will incorporate netCDFPerl and its manual page into the
+        perl installation.  To do this, you might need to be the user
+        who originally installed perl.
+
+    9.  Execute "make realclean".  This will remove all intermediate
+        files, allowing you to incorporate netCDFPerl on another platform.
+
+
+SUPPORT
+-------
+Questions should be directed to support@unidata.ucar.edu.  For help
+on installation, please enclose everything possible that might help a
+diagnosis.  We suggest the following:
+
+    A.  Output from the command "uname -a".
+
+    B.  The file "VERSION".
+
+    C.  Output from the command "which <cc>" or "type <cc>", where <cc>
+        is the C compiler that was used in the build attempt.
+
+    D.  The file "configure.log".
+
+    E.  The file "config.log".
+
+    F.  The file "makefile.log".
+
+    G.  The file "make.log".
+
+    H.  The file "test.log".
+
+    I.  The file "install.log".
+
+
+Regards,
+Steve Emmerson  <support@unidata.ucar.edu>
+Robb Kambic <support@unidata.ucar.edu>

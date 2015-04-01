@@ -1,0 +1,11 @@
+CVS
+Makefile
+Makefile.PL
+Makefile.old
+NetCDF.bs
+*.c
+*.i
+*.o
+blib
+*.log
+.cvsignore

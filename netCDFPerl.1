@@ -1,0 +1,133 @@
+.\" $Id: netCDFPerl.1,v 1.7 1999/07/21 16:38:27 steve Exp $
+.TH netCDFPerl 1 "$Date: 1999/07/21 16:38:27 $" "Printed: \n(yr-\n(mo-\n(dy" "UNIDATA UTILITIES"
+.SH NAME
+netCDFPerl \- perl extension for netCDF dataset access
+.SH SYNOPSIS
+.na
+.nh
+.nf
+use netCDF;
+.sp
+NetCDF::create("foo.nc", NetCDF::CLOBBER);
+\&...
+.fi
+.ad
+.hy
+.SH DESCRIPTION
+.PP
+\fBnetCDFPerl\fP is a Perl 5 extension-module interface to the services
+provided by the netCDF version 2 API, netcdf2(3).
+.PP
+The functions in the netCDF version 2 library can be accessed by a Perl 5 script
+by replacing the `\fBnc\fP' prefix of the regular netCDF version 2 C function
+names
+with \fBNetCDF::\fP.
+For example, the C function \fBnccreate()\fP is available to a perl script as 
+\fBNetCDF::create\fP.
+.PP
+Each perl function matches, as closely as possible and necessary,
+its C counterpart:
+.RS +4
+.IP * 2
+The number, order, and semantics of the arguments are identical.  Note, 
+however, that it is not necessary to specify the number of elements in 
+an array because perl arrays carry that information.
+.IP *
+The behavior is the same in terms of the netCDF dataset.
+.IP *
+A value of \fB-1\fP is returned to indicate an error.
+.RE
+.PP
+Scalar argument types are mapped in an obvious way:
+.sp
+.RS +4
+.TS
+tab(|);
+c c
+l l.
+C|Perl 5
+.sp
+char *|string
+char|integer
+short|integer
+int|integer
+nclong|integer
+long|integer
+float|double
+double|double
+.TE
+.RE
+.PP
+The individual elements of an array argument are similarly mapped.
+.PP
+Array arguments themselves are passed by reference for both input and
+output.
+For example, the following Perl 5 code will write and then read a
+hyperslab of values:
+.sp
+.RS +4
+.nf
+@start = (0, 0, 0);
+@count = (1, 2, 3);
+@out = (1, 2, 3, 4, 5, 6);
+NetCDF::varput($ncid, $varid, \@start, \@count, \@out);
+NetCDF::varget($ncid, $varid, \@start, \@count, \@in);
+.fi
+.RE
+.sp
+(The above assumes that \fB$ncid\fP and \fB$varid\fP have been
+appropriately set.)
+After this code is executed, the array \fB@in\fP will have the same
+values as the array \fB@out\fP.
+The previous contents, if any, of an array used for input are destroyed
+(e.g. \fB@in\fP in the above example).
+.PP
+To define a scalar variable with \fBNetCDF::vardef()\fP,
+use an empty dimension-ID array, e.g.
+.sp
+.RS +4
+NetCDF::vardef($ncid, "scalar_variable", NetCDF::FLOAT, \\());
+.RE
+.PP
+The interface doesn't support null arguments.
+One cannot use a void pointer to indicate that no value is requested for
+a particular argument: all arguments must be present.
+.PP
+For technical reasons, output variables must be initialized, i.e.
+any variable argument that is to have its value
+set by a function must already have a value.
+For example, if the first occurrence of the variable \fB$attval\fP is in
+the following:
+.sp
+.RS +4
+.nf
+NetCDF::attget($ncid, NetCDF::GLOBAL, "history", \\$attval);
+.fi
+.RE
+.sp
+then a core dump will probably result.
+The solution is to initialize the variable before using it:
+.sp
+.RS +4
+.nf
+$attval="";
+NetCDF::attget($ncid, NetCDF::GLOBAL, "history", \\$attval);
+.fi
+.RE
+.sp
+.PP
+Two additional functions are provided for error handling.
+\fBNetCDF::opts(i)\fP determines the handling of errors by setting
+the \fBncopts\fP variable to \fBi\fP.  
+It returns the previous value.
+\fBNetCDF::err()\fP returns the value of the
+error code variable, \fBncerr\fP.
+.PP
+In addition to the above functions, most C macro constants that are defined
+in the netCDF header file \fBnetcdf.h\fP are also available to a perl
+script by dropping any `\fBNC_\fP' substring and using the 
+\fBNetCDF::\fP prefix, e.g. \fBNetCDF::LONG\fP.
+.SH "SEE ALSO"
+.LP
+.BR perl (1),
+.BR netcdf2 (3)

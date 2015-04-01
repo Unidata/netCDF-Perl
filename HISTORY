@@ -1,0 +1,150 @@
+Release		Comments
+
+1.2.4	2009-05-08
+		Removed requirement for crediting UCAR/Unidata from 
+		COPYRIGHT file.  Replaced with non-obligatory request.
+
+		Eliminated some compiler warnings by adding a "default:"
+		member to some "switch" statements.
+
+		Verified correctness against netCDF-4 library.
+
+		Eliminated MAX_NC_OPEN if the netCDF header-file doesn't
+		have it.
+
+1.2.3   2004-03-10
+
+		Ported testing script "perl/test.pl" to perl v5.8.0.
+		This should not have been necessary.
+
+1.2.2	2002-01-09
+
+		Ported to perl 5.005 and 5.6.0.
+
+1.2.1	2000-07-25
+		Improved "make install" with respect to installation of
+		manual pages.
+
+                Tried to clarify the fact that this extension-module is
+                based on version 2 of the netCDF package.
+
+		Added "POLLUTE=1" to the perl command that creates
+		the makefile in the perl/ subdirectory to ensure
+		compatibility with the new naming convensions of perl
+		5.6.
+
+1.2	1997-05-20
+		Corrected manual page: fixed netcdf(3) reference so that
+		man-cgi(1) will work with it.
+
+                Ported to netCDF 3.  This required eliminating some
+                netCDF C macros that should never have been in the
+                public interface in the first place.  For example, I
+                used NetCDF::RDWR in the test script "perl/test.pl"
+                when I should have used NetCDF::NOWRITE.  Any perl
+                script using these macros will have to be modified
+                (fortunately, perl(1) reports undefined symbols).
+
+                Improved INSTALL document: in particular, added
+                commentary about modifying perl/Makefile.PL as
+                necessary.
+
+1.1	1996-08-22
+		Allowed use of references for scalar output arguments.
+
+                Documented lack of number-of-elements arguments in
+                interface function and how to specify a scalar variable
+                to NetCDF::vardef().
+
+		Corrected configuration script so that setting of CC
+		variable has an effect.
+
+		Replaced use of croak() in perl/NetCDF.xs with warn().
+		This will prevent the netCDF/Perl interface from
+		aborting on error.
+
+		Corrected typo in README file: changed `rcount' variable
+		to `count'.
+
+		Added check of NetCDF::attname() to perl `test' target.
+
+		Slightly enhanced README.
+
+		Added caveat about only using initialized output variables.
+
+		Improved INSTALL file: added commentary about requiring
+		position-independent netCDF object modules for a dynamic
+		netCDFPerl module and listed desired information for
+		diagnosing installation problems.
+
+		Adapted perl/Makefile.PL.in to latest perl release.
+
+1.0.4	1995-06-30
+		Corrected names of netCDFPerl files in perl/MANIFEST file.
+
+1.0.3	1995-06-29
+		Fixed incorrect behavior of NetCDF::varput1().
+
+		Converted top-level Makefile to POSIX.2 Standard.
+
+1.0.2	1995-06-20
+		Bug Fixes:
+		    NetCDF::recget():
+			First record was always returned regardless of
+			requested record index.
+
+		Documentation:
+		    INSTALL File:
+                        Reordered list of example, diagnostic commands
+                        to be sent when a problem occurs and added `cat
+                        VERSION`.
+
+                        Added netCDF package to list of prerequisite
+                        packages.
+
+                        Added SunOS 5.4 to list systems on which
+                        netCDFPerl has been successfully installed.
+
+1.0.1	1995-06-12
+		Added netCDFPerl URL to README.
+
+		Fixed bug that caused a netCDF/perl record-variable size
+		mismatch under SunOS 5 with the GNU C compiler.
+
+		Fixed bug in NetCDF::getatt(): it used to crash the
+		process.
+
+1.0	1995-06-07
+                Added CPP_NETCDF, LD_NETCDF, and LIBS examples to
+		CUSTOMIZE file.
+
+                Generalized netCDF::ncrecput and netCDF::ncrecget to
+                allow references to scalar values.
+
+		Added support for perl strings.  Reading a netCDF 
+		character variable now returns a perl string rather than
+		an array of integer values.
+
+                Corrected bug in netCDF::ncattname: it would only
+                return the first global attribute.  Thanks to Jon Meek
+                <meekj@Cyanamid.COM>.
+
+		Renamed everything in the API to conform to perl 5 
+		conventions and to reduce redundancy:
+		    *  The module name now starts with a capital;
+
+                    *  Function names no longer contain an `nc' prefix;
+		       and
+
+                    *  Constant names no longer contain an `NC_'
+		       substring.
+		For example,
+		    netCDF::nccreate($path, netCDF::NC_CLOBBER)
+		is now
+		    NetCDF::create($path, NetCDF::CLOBBER)
+
+0.1	1995-05-23
+		Ported installation mechanism to perl 5.001.
+
+0.0	1995-05-15
+		Initial release.

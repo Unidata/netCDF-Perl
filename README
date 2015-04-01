@@ -1,0 +1,147 @@
+$Id: README,v 1.8 1999/07/21 16:37:36 steve Exp $
+
+Greetings,
+
+    This file briefly describes the netCDFPerl package.
+
+INTRODUCTION
+------------
+
+    The netCDFPerl package is a perl extension for accessing netCDF
+    datasets based on version 2 of the netCDF package (netCDF-2).  For
+    example, the following netCDF-2 actions:
+
+        1.  Open dataset "foo.nc";
+
+        2.  Write a 2 x 3 array of double-precision values into the
+        starting corner of the first variable; and
+
+        3.  Close the dataset.
+
+    can be accomplished by the following C fragment:
+
+        int     ncid = ncopen("foo.nc", NC_WRITE);
+        int     varid = 0;
+        long    start[2], count[2];
+        double  values[6];
+
+        ncid = ncopen("foo.nc", NC_WRITE);
+
+        start[0] = 0;
+        start[1] = 0;
+        count[0] = 2;
+        count[1] = 3;
+
+        values[0] = 0.0;
+        values[1] = 1.0;
+        values[2] = 2.0;
+        values[3] = 3.0;
+        values[4] = 4.0;
+        values[5] = 5.0;
+
+        ncvarput(ncid, varid, start, count, values);
+
+        ncclose(ncid);
+
+    or by this equivalent perl fragment:
+
+        use NetCDF;
+
+        $ncid = NetCDF::open("foo.nc", NetCDF::WRITE);
+        $varid = 0;
+        @start = (0, 0);
+        @count = (2, 3);
+        @values = (0, 1, 2, 3, 4, 5);
+        NetCDF::varput($ncid, $varid, \@start, \@count, \@values);
+        NetCDF::close($ncid);
+
+    There are perl-callable functions for all appropriate functions of
+    the netCDF-2 API.
+
+netCDF-2 vs. netCDF-3
+---------------------
+
+    Currently, the NetCDFPerl extension module is implemented using
+    version 2 of the netCDF API (netCDF-2).  On 1997-05-16, version 3
+    of the netCDF package was released (netCDF-3).  This newer version,
+    however, contains a netCDF-2 backward compatibility interface.
+    Thus, with a few minor changes already made, NetCDFPerl works with
+    netCDF-3 as well as netCDF-2.
+
+    Users should be aware, however, that the NetCDFPerl user-interface
+    is based on netCDF-2.  In particular, the NetCDFPerl documentation
+    doesn't describe the NetCDFPerl interface in detail but instead
+    describes the differences between it and the netCDF-2 interface.
+    The intention was that users would use the NetCDFPerl and netCDF-2
+    documentation together in order to program using NetCDFPerl.
+
+    With the deprecation of the netCDF-2 interface, this has become
+    slightly problematical -- but not unworkable.  The solution is to
+    ensure the availability of the netCDF-2 documentation.  Currently,
+    the netCDF version 2 User's Guide is available at the following URL:
+
+	ftp://ftp.unidata.ucar.edu/pub/netcdf/guide-2.4.3.ps.Z
+
+    and the netCDF-library manual page for netCDF-2 is available as the
+    file "netcdf-2.4.3/src/doc/netcdf.3" in the netCDF-2 distribution at
+    the following URL:
+
+	ftp://ftp.unidata.ucar.edu/pub/netcdf/netcdf-2.4.3.tar.Z
+
+
+AVAILABILITY
+------------
+
+    netCDFPerl is freely available from either of the following URLs:
+
+        http://www.unidata.ucar.edu/packages/netcdf-perl/
+    
+    or
+
+        ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/netcdf-perl.tar.Z
+
+INSTALLATION
+------------
+
+    See the file INSTALL in the top-level directory of the netCDFPerl
+    distribution for instructions on how to incorporate netCDFPerl into
+    your perl utility.
+
+    You will need write access to your installed perl(1) libraries in
+    order to install netCDFPerl.
+
+ADDITIONAL INFORMATION
+----------------------
+
+    See the installed manual page, netCDFPerl(1), for additional
+    information.
+
+    There is a WWW page for netCDFPerl.  It's URL is
+
+        http://www.unidata.ucar.edu/packages/netcdf-perl
+
+MAILING-LIST
+------------
+
+    There is a netCDFPerl mailing-list.  To subscribe, send to the
+    following address:
+
+        majordomo@unidata.ucar.edu
+
+    a message whose body consists solely of the following:
+
+        subscribe netcdf-perl [opt-addr]
+
+    where [opt-addr] is an optional email address -- if you use it, then
+    mailing-list postings will be sent to it; otherwise, they will be
+    sent to the return address of the subscription request.
+
+TRANSLATIONS
+------------
+
+    This page has been translated into Croatian. The URL is
+    <http://science.webhostinggeeks.com/netcdf-perl">.
+
+
+Regards,
+Steve Emmerson <support@unidata.ucar.edu>

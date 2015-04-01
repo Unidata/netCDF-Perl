@@ -1,0 +1,32 @@
+dnl $Id: configure.in,v 1.6 2003/01/06 17:13:25 steve Exp $
+dnl
+dnl Process this file with GNU autoconf(1) to produce a configure script.
+dnl
+AC_INIT(netCDFPerl.1)
+UC_INIT_NOPORT()
+
+prefix=/usr/local
+NP_PROG_PERL
+NP_MANDIR_PERL
+NP_POLLUTE_PERL
+prefix=$PERL_MANDIR/..
+
+UC_MAKEFILE(port/Makefile)
+UC_MAKEFILE(port/master.mk)
+
+UC_DEFAULT(PORT_HEADERS, )
+UC_DEFAULT(PORT_MANIFEST, )
+UC_DEFAULT(PORT_SUBDIRS, )
+
+UC_PROG_NEQN
+UC_PROG_TBL
+UC_PROG_TAR
+
+UC_CPP_NETCDF
+UC_LIB_NETCDF
+
+UC_VERSION
+
+UC_FTPDIR(pub/netcdf-perl)
+
+UC_FINISH(Makefile perl/Makefile.PL)

@@ -1,0 +1,20 @@
+use ExtUtils::MakeMaker qw(WriteMakefile);
+
+
+# The existence of the ./*/Makefile.PL file causes MakeMaker
+# to automatically include Makefile code for the targets
+#	all, clean, realclean and */Makefile
+# which perform the corresponding action in the subdirectory.
+
+$version = "@VERSION@";
+                           
+WriteMakefile(
+    'NAME'     => 'NetCDF',
+    'DISTNAME' => "netcdf-perl-" + $version,
+    'VERSION'  => $version,
+    'INC'     => '@CPP_NETCDF@',
+    'OBJECT' => 'NetCDF.o',
+    'LIBS' => "@LD_NETCDF@ @LIBS@",
+    'clean' => {'FILES' => "*.nc NetCDF.bs"},
+    'realclean' => {'FILES' => "*.old Makefile.PL"}
+);

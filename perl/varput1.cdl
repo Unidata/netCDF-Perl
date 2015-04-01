@@ -1,0 +1,16 @@
+netcdf varput1 {
+dimensions:
+        year = UNLIMITED ;
+        month = 12 ;
+        day = 31 ;
+
+variables:
+        int TMax(year, month, day) ;
+                TMax:long_name = "maximum temperature" ;
+                TMax:units = "Celcius" ;
+                TMax:_FillValue = -99 ;
+
+// global attributes:
+                :title = "Louisiana AgriClimatic Information System (LAIS)" ;
+                :base_year = 1984s ;
+}

@@ -1,0 +1,41 @@
+# This file is for customizing the configuation process performed by
+# `./configure'.  This file consists of sh(1) variable-definition lines.
+# The value given to those variable by this file will override their
+# default values.
+#
+# Alternatively, You can customize the configuration process via the
+# environment variables seen by ./configure.  For example:
+#
+#     In csh(1):
+#         % setenv PERL /usr/local/bin/perl
+#         % ./configure
+#
+#     In sh(1):
+#         $ PERL=/usr/local/bin/perl ./configure
+#
+# Variables in this file override the environmental ones.
+#
+########################################################################
+#
+# C compiler:
+# CC=/bin/cc
+#
+# Compiler reference for netCDF header file:
+# CPP_NETCDF=-I/usr/local/netcdf/include
+#
+# Linker reference for netCDF library:
+# LD_NETCDF='-L/usr/local/netcdf/lib -lnetcdf'
+#
+# Additional libraries that need to be linked into the dynamic library
+# (NB: SunOS 4 systems might need something like the following to resolve
+# the symbol `strerror'):
+# LIBS='-L/usr/local/lang/SC3.0.1/lib -lansi'
+#
+# Pathname of the perl(1) utility:
+# PERL=/usr/local/bin/perl
+#
+# Pathname of the perl(1) top-level source directory:
+# PERL_SRCDIR=/usr/local/src/perl5.000
+#
+# Pathname of the perl(1) manual page installation directory:
+# PERL_MANDIR=/usr/local/man
