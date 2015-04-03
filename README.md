@@ -2,9 +2,6 @@ NetCDF Perl
 ===================
 Greetings!  This file briefly describes the Unidata netCDF Perl package.
 
-----------
-
-
 ###Table of Contents
 * [Notice of Deprecation](#Notice_of_Deprecation)
 * [Introduction](#Introduction)
@@ -12,7 +9,6 @@ Greetings!  This file briefly describes the Unidata netCDF Perl package.
 * [Installation](#Installation)
 * [Support & Mailing List](#Support)
 * [Known Problems](#Known_Problems)
-* [Additional Information](Additional_Information)
 
 ### <a name="Notice_of_Deprecation"></a>Notice of Deprecation
 The netCDF Perl package is **no longer being actively maintained** by the Unidata program center. Unidata will continue to provide support for Unidata netCDF Perl.
@@ -117,6 +113,7 @@ Request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unida
 You can also view current and past [netCDF perl support questions]( http://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
 
 **Defunct Mailing List**
+
 Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](http://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
 
 ### <a name="Known_Problems"></a>Known Problems
@@ -129,6 +126,3 @@ Perl had a community mailing list associated with it at one time. The mailing li
 ````
 in the file perl/Makefile to after the all target.
 
-### <a name="Additional_Information"></a>Additional Information
-
-* [Unidata netCDF library](http://www.unidata.ucar.edu/software/netcdf/)
