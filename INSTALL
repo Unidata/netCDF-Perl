@@ -1,17 +1,15 @@
-$Id: INSTALL,v 1.12 2004/05/17 15:12:27 steve Exp $
-
 INTRODUCTION
 ------------
 Greetings,
 
-This file explains how to incorporate netCDFPerl, the perl extension for
+This file explains how to incorporate netCDF Perl, the perl extension for
 netCDF dataset access, into perl 5.00? on a UNIX system.  (We're afraid
 you're on your own for non-UNIX systems.)
 
 
 PLATFORMS
 ---------
-We've successfully incorporated netCDFPerl into perl 5.003 on the
+We've successfully incorporated netCDF Perl into perl 5.003 on the
 following systems:
 
     Machine             Operating System        C Compiler
@@ -28,23 +26,23 @@ following systems:
 
 PREREQUISITES
 -------------
-In order to incorporate netCDFPerl, you must already have version of 
+In order to incorporate netCDF Perl, you must already have version of 
 perl 5.4 (or later) installed on your system.  Perl can be obtained from 
 URL
 
-    http://www.metronet.com/perlinfo/perl5.html.
+    https://www.perl.org/get.html
 
 You should also have the netCDF package installed.  The version should
 be 2.3.2, patch level 4, or later.  The netCDF package can be obtained
 from URL
 
-    http://my.unidata.ucar.edu/
+    ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
 
-In order to be usable by a dynamically-linked netCDFPerl package, the
+In order to be usable by a dynamically-linked netCDF Perl package, the
 object modules in the netCDF library should have been compiled in a
 position-independent manner, i.e. they should have been compiled as if
 they were going to be put into a shared library (which they will be in a
-dynamically-linked netCDFPerl module).  The following table gives some
+dynamically-linked netCDF Perl module).  The following table gives some
 of the relevant C compiler options that should have been used:
 
                     Operating System    Option
@@ -58,14 +56,14 @@ the default.  Check the manual page for your compiler for further
 information.
 
 If your system has perl4 or an early version of perl5 installed as well as
-version 5.003, they must be moved before installing netCDFPerl because the 
-netCDFPerl installation will use the old perl binaries.
+version 5.003, they must be moved before installing netCDF Perl because the 
+netCDF Perl installation will use the old perl binaries.
 
 
 INSTALLATION INSTRUCTIONS
 -------------------------
 When you have the prerequisite perl 5.003 (or later) and netCDF packages
-installed, then do the following to incorporate netCDFPerl:
+installed, then do the following to incorporate netCDF Perl:
 
     1.  Go to the directory containing this file (the top-level source
         directory of the NetCDFPerl package).
@@ -142,18 +140,18 @@ installed, then do the following to incorporate netCDFPerl:
         variables you might add to or modify in "perl/Makefile.PL".
 
         IRIX64-6 Users: You must ensure that the same Application
-        Binary Interface is used for the perl, netCDF, and netCDFPerl
+        Binary Interface is used for the perl, netCDF, and netCDF Perl
         packages.
 
     6.  Execute "make".  Redirect standard output and standard error to
         the file "make.log".  If an error occurs, then stop and send items
         A-G to support (see below).
 
-        This will build netCDFPerl in the perl/ subdirectory.  On
-        systems that support shared libraries, a netCDFPerl shared
+        This will build netCDF Perl in the perl/ subdirectory.  On
+        systems that support shared libraries, a netCDF Perl shared
         library will be built.  On systems that lack shared library
         support, a new, statically-linked perl utility will be built
-        that incorporates netCDFPerl as well as all previously
+        that incorporates netCDF Perl as well as all previously
         incorporated extensions (e.g. TkPerl).
 
         NOTE: On a DEC RISC/ULTRIX 4.5 system, the perl-generated
@@ -167,7 +165,7 @@ installed, then do the following to incorporate netCDFPerl:
         error to the file "test.log".  If an error occurs, then stop and
         send items A-H to SUPPORT (see below).
 
-        This will test netCDFPerl.  The perl script that executes the
+        This will test netCDF Perl.  The perl script that executes the
         test is in perl/test.pl.  You might wish to peruse it as an
         example.
 
@@ -175,12 +173,12 @@ installed, then do the following to incorporate netCDFPerl:
         error to the file "install.log".  If an error occurs, then stop
         and send items A-I to SUPPORT (see below).
     
-        This will incorporate netCDFPerl and its manual page into the
+        This will incorporate netCDF Perl and its manual page into the
         perl installation.  To do this, you might need to be the user
         who originally installed perl.
 
     9.  Execute "make realclean".  This will remove all intermediate
-        files, allowing you to incorporate netCDFPerl on another platform.
+        files, allowing you to incorporate netCDF Perl on another platform.
 
 
 SUPPORT
@@ -208,7 +206,3 @@ diagnosis.  We suggest the following:
 
     I.  The file "install.log".
 
-
-Regards,
-Steve Emmerson  <support@unidata.ucar.edu>
-Robb Kambic <support@unidata.ucar.edu>
