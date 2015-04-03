@@ -89,16 +89,13 @@ In addition to the source here on GitHub, Unidata netCDF Perl is freely availabl
 
 > Note:  The following are third-party and have not been verified or validated by the Unidata Program Center. 
 
-[RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/) 
-
+[RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/)   
 Alan Iwi's source and binary RPMs for RedHat Linux and ncmanipulate module to manipulate NetCDF files.
 
-[Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl) 
-
+[Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl)   
 Fedora provides a package called "netcdf-perl".
 
 [PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) 
-
 Doug Hunt's perl interface which uses the PDL (perl data language) extension.
 
 
