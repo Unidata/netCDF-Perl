@@ -14,12 +14,11 @@ Greetings!  This file briefly describes the Unidata netCDF Perl package.
 * [Known Problems](#Known_Problems)
 * [Additional Information](Additional_Information)
 
-----------
 ### <a name="Notice_of_Deprecation"></a>Notice of Deprecation
-> **Note**: The netCDF Perl package is **no longer being actively maintained** by the Unidata program center. Unidata will continue to provide support for Unidata netCDF Perl.
+The netCDF Perl package is **no longer being actively maintained** by the Unidata program center. Unidata will continue to provide support for Unidata netCDF Perl.
 
 ### <a name="Introduction"></a>Introduction
-The netCDF Perl package is a perl extension module for scientific data access via the netCDF API.
+The netCDF Perl package is a perl extension module for scientific data access via the [netCDF API](http://www.unidata.ucar.edu/software/netcdf/).
 
 The netCDF Perl package is a perl extension for accessing netCDF  datasets based on version 2 of the netCDF package (netCDF-2).  For example, the following netCDF-2 actions:
 
@@ -83,17 +82,23 @@ There are perl-callable functions for all appropriate functions of the netCDF-2 
 ### <a name="Availability"></a>Availability
 
 **Unidata netCDF Perl**
-...Other than the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
+
+In addition to the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
 
 **Other Sources**
 
 > Note:  The following are third-party and have not been verified or validated by the Unidata Program Center. 
 
-*[RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/) 
+[RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/) 
+
 Alan Iwi's source and binary RPMs for RedHat Linux and ncmanipulate module to manipulate NetCDF files.
-*[Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl) 
+
+[Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl) 
+
 Fedora provides a package called "netcdf-perl".
-*[PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) 
+
+[PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) 
+
 Doug Hunt's perl interface which uses the PDL (perl data language) extension.
 
 
