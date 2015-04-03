@@ -6,19 +6,19 @@ Greetings!  This file briefly describes the Unidata netCDF Perl package.
 
 
 ###Table of Contents
-* [Notice of Deprecation]()
-* [Introduction]()
-* [Availability]()
-* [Installation]()
-* [Support & Mailing List]()
-* [Known Problems]()
-* [Additional Information]()
+* [Notice of Deprecation](#Notice_of_Deprecation)
+* [Introduction](#Introduction)
+* [Availability](#Availability)
+* [Installation](#Information)
+* [Support & Mailing List](#Support)
+* [Known Problems](#Known_Problems)
+* [Additional Information](Additional_Information)
 
 ----------
-### Notice of Deprecation
+### <a name="Notice_of_Deprecation"></a>Notice of Deprecation
 > **Note**: The netCDF Perl package is **no longer being actively maintained** by the Unidata program center. Unidata will continue to provide support for Unidata netCDF Perl.
 
-### Introduction
+### <a name="Introduction"></a>Introduction
 The netCDF Perl package is a perl extension module for scientific data access via the netCDF API.
 
 The netCDF Perl package is a perl extension for accessing netCDF  datasets based on version 2 of the netCDF package (netCDF-2).  For example, the following netCDF-2 actions:
@@ -80,7 +80,7 @@ There are perl-callable functions for all appropriate functions of the netCDF-2 
 > The [Unidata netCDF library web site](http://www.unidata.ucar.edu/software/netcdf) contains user guides, manual pages, information on the various versions of netCDF, and more.
 
 	
-### Availability
+### <a name="Availability"></a>Availability
 
 Unidata netCDF Perl
 :   Other than the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
@@ -94,7 +94,7 @@ Other Sources
 :  [PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) Doug Hunt's perl interface which uses the PDL (perl data language) extension.
 
 
-### Installation
+### <a name="Installation"></a>Installation
 See the file [INSTALL]() in the top-level directory of the netCDF Perl distribution for instructions on how to incorporate netCDF Perl into your perl utility.
 
 > Note: You will need write access to your installed perl(1) libraries in order to install netCDF Perl.
@@ -103,7 +103,7 @@ The netCDF Perl [manual page]() details how to use the NetCDF Perl package.
 
 Read the list of [known problems]() with the netCDF Perl package
 
-### Support & Mailing List
+### <a name="Support"></a>Support & Mailing List
 
 Requesting Support
 :  To request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
@@ -112,7 +112,7 @@ Requesting Support
 Defunct Mailing List
 :  Unidata netCDF Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](http://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
 
-### Known Problems
+### <a name="Known_Problems"></a>Known Problems
 
 netCDFPerl doesn't install under OSF/1
 :  make install might fail to install the netCDFPerl package under OSF/1. This might be due to a bug in make(1). The solution is to move the line
@@ -121,4 +121,5 @@ netCDFPerl doesn't install under OSF/1
 ````
 in the file perl/Makefile to after the all target.
 
+### <a name="Additional_Information"></a>Additional Information
 
