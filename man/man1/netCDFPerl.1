@@ -1,0 +1,132 @@
+
+
+
+UNIDATA UTILITIES                                   netCDFPerl(1)
+
+
+
+NAME
+     netCDFPerl - perl extension for netCDF dataset access
+
+SYNOPSIS
+     use netCDF;
+
+     NetCDF::create("foo.nc", NetCDF::CLOBBER);
+     ...
+
+DESCRIPTION
+     netCDFPerl is a Perl 5  extension-module  interface  to  the
+     services provided by the netCDF version 2 API, netcdf2(3).
+
+     The functions in the netCDF version 2  library  can  be  ac-
+     cessed  by  a  Perl 5 script by replacing the `nc' prefix of
+     the regular netCDF version 2 C function names with NetCDF::.
+     For  example,  the  C  function nccreate() is available to a
+     perl script as NetCDF::create.
+
+     Each perl function  matches,  as  closely  as  possible  and
+     necessary, its C counterpart:
+
+         * The number, order, and semantics of the arguments  are
+           identical.  Note, however, that it is not necessary to
+           specify the number of elements  in  an  array  because
+           perl arrays carry that information.
+
+         * The behavior is the same in terms of  the  netCDF  da-
+           taset.
+
+         * A value of -1 is returned to indicate an error.
+
+     Scalar argument types are mapped in an obvious way:
+
+         tab(|); c c l l.  C|Perl 5
+
+         char  *|string  char|integer  short|integer  int|integer
+         nclong|integer long|integer float|double double|double
+
+     The individual elements of an array argument  are  similarly
+     mapped.
+
+     Array arguments themselves are passed by reference for  both
+     input  and  output.   For example, the following Perl 5 code
+     will write and then read a hyperslab of values:
+
+         @start = (0, 0, 0);
+         @count = (1, 2, 3);
+         @out = (1, 2, 3, 4, 5, 6);
+         NetCDF::varput($ncid, $varid, @start, @count, @out);
+         NetCDF::varget($ncid, $varid, @start, @count, @in);
+
+
+
+
+Printed: 114-L2a-s2t7change: $Date: 1999/07/21 16:38:27 $           1
+
+
+
+
+
+
+UNIDATA UTILITIES                                   netCDFPerl(1)
+
+
+
+     (The above assumes that $ncid and $varid have been appropri-
+     ately set.)  After this code is executed, the array @in will
+     have the same values as the array @out.  The  previous  con-
+     tents,  if  any,  of  an  array used for input are destroyed
+     (e.g. @in in the above example).
+
+     To define a scalar variable with  NetCDF::vardef(),  use  an
+     empty dimension-ID array, e.g.
+
+         NetCDF::vardef($ncid, "scalar_variable",  NetCDF::FLOAT,
+         \());
+
+     The interface doesn't support null  arguments.   One  cannot
+     use  a  void  pointer to indicate that no value is requested
+     for a particular argument: all arguments must be present.
+
+     For technical reasons, output variables must be initialized,
+     i.e.  any variable argument that is to have its value set by
+     a function must already have a value.  For example,  if  the
+     first  occurrence  of the variable $attval is in the follow-
+     ing:
+
+         NetCDF::attget($ncid, NetCDF::GLOBAL, "history", \$attval);
+
+     then a core dump will probably result.  The solution  is  to
+     initialize the variable before using it:
+
+         $attval="";
+         NetCDF::attget($ncid, NetCDF::GLOBAL, "history", \$attval);
+
+
+     Two additional functions are provided  for  error  handling.
+     NetCDF::opts(i) determines the handling of errors by setting
+     the ncopts variable to i. It  returns  the  previous  value.
+     NetCDF::err()  returns the value of the error code variable,
+     ncerr.
+
+     In addition to the above functions, most C  macro  constants
+     that are defined in the netCDF header file netcdf.h are also
+     available to a perl script by dropping any  `NC_'  substring
+     and using the NetCDF:: prefix, e.g. NetCDF::LONG.
+
+SEE ALSO
+     perl(1), netcdf2(3)
+
+
+
+
+
+
+
+
+
+
+
+Printed: 114-L2a-s2t7change: $Date: 1999/07/21 16:38:27 $           2
+
+
+
