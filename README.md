@@ -82,40 +82,40 @@ There are perl-callable functions for all appropriate functions of the netCDF-2 
 	
 ### <a name="Availability"></a>Availability
 
-Unidata netCDF Perl
-:   Other than the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
+**Unidata netCDF Perl**
+... Other than the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
 
-Other Sources
+**Other Sources**
 
-:  > **Note**:  The following are third-party and have not been verified or validated by the Unidata Program Center. 
+> Note:  The following are third-party and have not been verified or validated by the Unidata Program Center. 
 
-:  [RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/) Alan Iwi's source and binary RPMs for RedHat Linux and ncmanipulate module to manipulate NetCDF files.
-:  [Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl) Fedora provides a package called "netcdf-perl".
-:  [PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) Doug Hunt's perl interface which uses the PDL (perl data language) extension.
+... [RedHat RPM & ncmanipulate](http://home.badc.rl.ac.uk/iwi/netcdf-perl/) Alan Iwi's source and binary RPMs for RedHat Linux and ncmanipulate module to manipulate NetCDF files.
+... [Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl) Fedora provides a package called "netcdf-perl".
+... [PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) Doug Hunt's perl interface which uses the PDL (perl data language) extension.
 
 
 ### <a name="Installation"></a>Installation
-See the file [INSTALL]() in the top-level directory of the netCDF Perl distribution for instructions on how to incorporate netCDF Perl into your perl utility.
+See the file [INSTALL](INSTALL) in the top-level directory of the netCDF Perl distribution for instructions on how to incorporate netCDF Perl into your perl utility.
 
 > Note: You will need write access to your installed perl(1) libraries in order to install netCDF Perl.
 
-The netCDF Perl [manual page]() details how to use the NetCDF Perl package.
+The netCDF Perl [manual page](man/man1/netCDFPerl.1) details how to use the NetCDF Perl package.
 
-Read the list of [known problems]() with the netCDF Perl package
+Read the list of [known problems](#Known_Problems) with the netCDF Perl package.
 
 ### <a name="Support"></a>Support & Mailing List
 
-Requesting Support
-:  To request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
-:  You can also view current and past [netCDF perl support questions]( http://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
+**Requesting Support**
+... support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
+... also view current and past [netCDF perl support questions]( http://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
 
-Defunct Mailing List
-:  Unidata netCDF Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](http://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
+**Defunct Mailing List**
+... Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](http://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
 
 ### <a name="Known_Problems"></a>Known Problems
 
-netCDFPerl doesn't install under OSF/1
-:  make install might fail to install the netCDFPerl package under OSF/1. This might be due to a bug in make(1). The solution is to move the line
+**netCDFPerl doesn't install under OSF/1**
+...  make install might fail to install the netCDFPerl package under OSF/1. This might be due to a bug in make(1). The solution is to move the line
 ````
 .PRECIOUS: Makefile
 ````
@@ -123,3 +123,4 @@ in the file perl/Makefile to after the all target.
 
 ### <a name="Additional_Information"></a>Additional Information
 
+* [Unidata netCDF library](http://www.unidata.ucar.edu/software/netcdf/)
