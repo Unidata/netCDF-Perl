@@ -95,7 +95,7 @@ Alan Iwi's source and binary RPMs for RedHat Linux and ncmanipulate module to ma
 [Fedora Installation](https://apps.fedoraproject.org/packages/netcdf-perl)   
 Fedora provides a package called "netcdf-perl".
 
-[PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd) 
+[PDL::NetCDF](http://search.cpan.org/~dhunt/PDL-NetCDF-4.05/netcdf.pd)  
 Doug Hunt's perl interface which uses the PDL (perl data language) extension.
 
 
@@ -111,7 +111,9 @@ Read the list of [known problems](#Known_Problems) with the netCDF Perl package.
 ### <a name="Support"></a>Support & Mailing List
 
 **Requesting Support**
+
 Request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
+  
 You can also view current and past [netCDF perl support questions]( http://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
 
 **Defunct Mailing List**
@@ -120,7 +122,8 @@ Perl had a community mailing list associated with it at one time. The mailing li
 ### <a name="Known_Problems"></a>Known Problems
 
 **netCDFPerl doesn't install under OSF/1**
-...make install might fail to install the netCDFPerl package under OSF/1. This might be due to a bug in make(1). The solution is to move the line
+
+<code>make install</code> might fail to install the netCDFPerl package under OSF/1. This might be due to a bug in make(1). The solution is to move the line
 ````
 .PRECIOUS: Makefile
 ````
