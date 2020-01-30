@@ -2,7 +2,7 @@ NetCDF Perl
 ===================
 Greetings!  This file briefly describes the Unidata netCDF Perl package.
 
-###Table of Contents
+### Table of Contents
 * [Notice of Deprecation](#Notice_of_Deprecation)
 * [Introduction](#Introduction)
 * [Availability](#Availability)
