@@ -11,10 +11,10 @@ Greetings!  This file briefly describes the Unidata netCDF Perl package.
 * [Known Problems](#Known_Problems)
 
 ### <a name="Notice_of_Deprecation"></a>Notice of Deprecation
-The netCDF Perl package is **no longer being actively maintained** by the Unidata program center. Unidata will continue to provide support for Unidata netCDF Perl.
+The netCDF Perl package is **no longer being actively maintained or supported** by the Unidata Program Center. 
 
 ### <a name="Introduction"></a>Introduction
-The netCDF Perl package is a perl extension module for scientific data access via the [netCDF API](http://www.unidata.ucar.edu/software/netcdf/).
+The netCDF Perl package is a perl extension module for scientific data access via the [netCDF API](https://www.unidata.ucar.edu/software/netcdf/).
 
 The netCDF Perl package is a perl extension for accessing netCDF  datasets based on version 2 of the netCDF package (netCDF-2).  For example, the following netCDF-2 actions:
 
@@ -72,7 +72,7 @@ There are perl-callable functions for all appropriate functions of the netCDF-2 
 
 > With the deprecation of the netCDF-2 interface, this has become slightly problematical -- but not unworkable.  The solution is to ensure the availability of the netCDF-2 documentation.  
 
-> The [Unidata netCDF library web site](http://www.unidata.ucar.edu/software/netcdf) contains user guides, manual pages, information on the various versions of netCDF, and more.
+> The [Unidata netCDF library web site](https://www.unidata.ucar.edu/software/netcdf) contains user guides, manual pages, information on the various versions of netCDF, and more.
 
 	
 ### <a name="Availability"></a>Availability
@@ -110,11 +110,11 @@ Read the list of [known problems](#Known_Problems) with the netCDF Perl package.
 
 Request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
   
-You can also view current and past [netCDF perl support questions]( http://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
+You can also view current and past [netCDF perl support questions]( https://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
 
 **Defunct Mailing List**
 
-Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](http://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
+Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](https://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
 
 ### <a name="Known_Problems"></a>Known Problems
 
