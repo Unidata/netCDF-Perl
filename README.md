@@ -79,7 +79,7 @@ There are perl-callable functions for all appropriate functions of the netCDF-2 
 
 **Unidata netCDF Perl**
 
-In addition to the source here on GitHub, Unidata netCDF Perl is freely available for download at: ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
+The source for netCDF Perl is here on GitHub.
 
 **Other Sources**
 
@@ -108,9 +108,9 @@ Read the list of [known problems](#Known_Problems) with the netCDF Perl package.
 
 **Requesting Support**
 
-Request support from Unidata netCDF Perl developers:  <support-netcdf-perl@unidata.ucar.edu> 
+NetCDF Perl is under *community development*. Please post any questions or bugs to the [GitHub Issues](https://github.com/Unidata/netCDF-Perl/issues) for this repository.  
   
-You can also view current and past [netCDF perl support questions]( https://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
+You can also view *past* [netCDF perl support questions]( https://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
 
 **Defunct Mailing List**
 
