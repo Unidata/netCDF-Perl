@@ -183,26 +183,7 @@ installed, then do the following to incorporate netCDF Perl:
 
 SUPPORT
 -------
-Questions should be directed to support@unidata.ucar.edu.  For help
-on installation, please enclose everything possible that might help a
-diagnosis.  We suggest the following:
 
-    A.  Output from the command "uname -a".
+NetCDF Perl is under community development. Please post any questions or bugs to the GitHub Issues (https://github.com/Unidata/netCDF-Perl/issues) for this repository.
 
-    B.  The file "VERSION".
-
-    C.  Output from the command "which <cc>" or "type <cc>", where <cc>
-        is the C compiler that was used in the build attempt.
-
-    D.  The file "configure.log".
-
-    E.  The file "config.log".
-
-    F.  The file "makefile.log".
-
-    G.  The file "make.log".
-
-    H.  The file "test.log".
-
-    I.  The file "install.log".
-
+You can also view past netCDF perl support questions ( https://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
