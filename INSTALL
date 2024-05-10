@@ -36,7 +36,7 @@ You should also have the netCDF package installed.  The version should
 be 2.3.2, patch level 4, or later.  The netCDF package can be obtained
 from URL
 
-    ftp://ftp.unidata.ucar.edu/pub/netcdf-perl/
+    https://github.com/Unidata/netCDF-Perl/releases/tag/v1.2.4
 
 In order to be usable by a dynamically-linked netCDF Perl package, the
 object modules in the netCDF library should have been compiled in a
