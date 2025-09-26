@@ -110,11 +110,11 @@ Read the list of [known problems](#Known_Problems) with the netCDF Perl package.
 
 NetCDF Perl is under *community development*. Please post any questions or bugs to the [GitHub Issues](https://github.com/Unidata/netCDF-Perl/issues) for this repository.  
   
-You can also view *past* [netCDF perl support questions]( https://www.unidata.ucar.edu/support/help/MailArchives/netcdf-perl/maillist.html) answered by Unidata developers.
+You can also view *past* [netCDF perl support questions](https://support.unidata.ucar.edu/archives/netcdf-perl/) answered by Unidata developers.
 
 **Defunct Mailing List**
 
-Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](https://www.unidata.ucar.edu/mailing_lists/archives/netcdf-perl/) is still available for reference.
+Perl had a community mailing list associated with it at one time. The mailing list is **no longer active**, but the [list archive](https://mailinglists.unidata.ucar.edu/archives/netcdf-perl/) is still available for reference.
 
 ### <a name="Known_Problems"></a>Known Problems
 
